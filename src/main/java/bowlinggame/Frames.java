@@ -45,9 +45,8 @@ public class Frames {
     }
 
     private int getNextPinFall(int index) {
-        if (index <= EIGHTH_FRAME_INDEX) {
-            return parseFrames.get(index + 1).getFirstPinFall();
-        }
-        return parseExtraBalls.getFirstPinFall();
+        return index <= EIGHTH_FRAME_INDEX
+                ? parseFrames.get(index + 1).getFirstPinFall()
+                : parseExtraBalls.getFirstPinFall();
     }
 }
