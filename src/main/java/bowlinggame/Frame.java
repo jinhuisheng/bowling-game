@@ -5,18 +5,8 @@ import java.util.List;
 
 public class Frame {
 
-    private static final String STRIKE_TAG = "X";
     private static final String MISS_TAG = "-";
-    private static final String SPARE_TAG = "/";
     protected List<Integer> bowlingPins = new ArrayList<>();
-
-    public static boolean isSpare(String scoreText) {
-        return scoreText.contains(SPARE_TAG);
-    }
-
-    public static boolean isStrike(String scoreText) {
-        return scoreText.equals(STRIKE_TAG);
-    }
 
     public Frame(String scoreText) {
         parse(scoreText);
