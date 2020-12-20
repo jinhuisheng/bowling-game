@@ -16,11 +16,6 @@ public class Frames {
 
     public Integer score() {
         return IntStream.range(0, 10).map(this::countFrameScore).sum();
-//        int score = 0;
-//        for (int index = 0; index < FRAME_COUNT; index++) {
-//            score += countFrameScore(index);
-//        }
-//        return score;
     }
 
     private int countFrameScore(int index) {
@@ -36,14 +31,18 @@ public class Frames {
 
     private int getNextNextPinFall(int index) {
         if (index < EIGHTH_FRAME_INDEX) {
-            return parseFrames.get(index + 1).isStrike()
-                    ? parseFrames.get(index + 2).getFirstPinFall()
-                    : parseFrames.get(index + 1).getSecondPinFall();
+            return getNextNextPinFallForBeforeEight(index);
         }
         if (index == EIGHTH_FRAME_INDEX) {
             return parseExtraBalls.getFirstPinFall();
         }
         return parseExtraBalls.getSecondPinFall();
+    }
+
+    private int getNextNextPinFallForBeforeEight(int index) {
+        return parseFrames.get(index + 1).isStrike()
+                ? parseFrames.get(index + 2).getFirstPinFall()
+                : parseFrames.get(index + 1).getSecondPinFall();
     }
 
     private int getNextPinFall(int index) {
