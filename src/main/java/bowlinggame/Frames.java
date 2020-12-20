@@ -15,7 +15,7 @@ public class Frames {
     }
 
     public Integer score() {
-        return IntStream.range(0, 10).map(this::countFrameScore).sum();
+        return IntStream.range(0, FRAME_COUNT).map(this::countFrameScore).sum();
     }
 
     private int countFrameScore(int index) {
