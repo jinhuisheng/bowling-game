@@ -21,21 +21,19 @@ public class Frames {
     private int countFrameScore(int index) {
         Frame currentFrame = parseFrames.get(index);
         if (currentFrame.isStrike()) {
-            return currentFrame.getBowlingPins() + (index <= EIGHTH_FRAME_INDEX
-                    ? parseFrames.get(index + 1).getFirstPinFall()
-                    : parseExtraBalls.getFirstPinFall()) + getNextNextPinFall(index);
+            return currentFrame.getBowlingPins() + getNextPinFall(index) + getNextNextPinFall(index);
         }
         if (currentFrame.isSpare()) {
-            return currentFrame.getBowlingPins() + (index <= EIGHTH_FRAME_INDEX
-                    ? parseFrames.get(index + 1).getFirstPinFall()
-                    : parseExtraBalls.getFirstPinFall());
+            return currentFrame.getBowlingPins() + getNextPinFall(index);
         }
         return currentFrame.getBowlingPins();
     }
 
     private int getNextNextPinFall(int index) {
         if (index < EIGHTH_FRAME_INDEX) {
-            return getNextNextPinFallForBeforeEight(index);
+            return parseFrames.get(index + 1).isStrike()
+                    ? parseFrames.get(index + 2).getFirstPinFall()
+                    : parseFrames.get(index + 1).getSecondPinFall();
         }
         if (index == EIGHTH_FRAME_INDEX) {
             return parseExtraBalls.getFirstPinFall();
@@ -43,10 +41,9 @@ public class Frames {
         return parseExtraBalls.getSecondPinFall();
     }
 
-    private int getNextNextPinFallForBeforeEight(int index) {
-        return parseFrames.get(index + 1).isStrike()
-                ? parseFrames.get(index + 2).getFirstPinFall()
-                : parseFrames.get(index + 1).getSecondPinFall();
+    private int getNextPinFall(int index) {
+        return index <= EIGHTH_FRAME_INDEX
+                ? parseFrames.get(index + 1).getFirstPinFall()
+                : parseExtraBalls.getFirstPinFall();
     }
-
 }
