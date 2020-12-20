@@ -1,6 +1,7 @@
 package bowlinggame;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Frames {
     private static final int EIGHTH_FRAME_INDEX = 8;
@@ -14,11 +15,12 @@ public class Frames {
     }
 
     public Integer score() {
-        int score = 0;
-        for (int index = 0; index < FRAME_COUNT; index++) {
-            score += countFrameScore(index);
-        }
-        return score;
+        return IntStream.range(0, 10).map(this::countFrameScore).sum();
+//        int score = 0;
+//        for (int index = 0; index < FRAME_COUNT; index++) {
+//            score += countFrameScore(index);
+//        }
+//        return score;
     }
 
     private int countFrameScore(int index) {
