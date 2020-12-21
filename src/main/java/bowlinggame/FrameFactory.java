@@ -5,6 +5,9 @@ public class FrameFactory {
 
     private static final String SPARE_TAG = "/";
 
+    private FrameFactory() {
+    }
+
     public static Frame create(String scoreText) {
         if (isStrike(scoreText)) {
             return new StrikeFrame(scoreText);
