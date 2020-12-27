@@ -97,5 +97,6 @@ pinfall 一次投球击倒瓶数
 score 得分
 game 一局 
 
+
 ## 视频
 https://www.bilibili.com/video/BV1Sx411Y7fz
