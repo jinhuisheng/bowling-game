@@ -20,9 +20,7 @@ public class Frames {
 
     private int countFrameScore(int index) {
         Frame currentFrame = parseFrames.get(index);
-        if (currentFrame.isStrike()) {
-            return currentFrame.getBowlingPins() + getNextPinFall(index) + getNextNextPinFall(index);
-        }
+        if (currentFrame.isStrike()) { return currentFrame.getBowlingPins() + getNextPinFall(index) + getNextNextPinFall(index); }
         if (currentFrame.isSpare()) {
             return currentFrame.getBowlingPins() + getNextPinFall(index);
         }
