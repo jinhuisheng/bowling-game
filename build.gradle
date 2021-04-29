@@ -5,10 +5,10 @@ plugins {
     id "org.sonarqube" version "3.0"
 }
 
-apply from: "gradle/git-hooks.gradle"
+//apply from: "gradle/git-hooks.gradle"
 apply from: "gradle/test.gradle"
-apply from: "gradle/checkstyle.gradle"
-apply from: "gradle/sonar.gradle"
+//apply from: "gradle/checkstyle.gradle"
+//apply from: "gradle/sonar.gradle"
 
 
 dependencies {
