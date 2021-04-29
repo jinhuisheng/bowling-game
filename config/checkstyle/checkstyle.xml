@@ -41,7 +41,7 @@
     </module>
 
     <module name="FileLength" >
-        <property name="max" value="55"/>
+        <property name="max" value="100"/>
         <property name="severity" value="error" />
     </module>
 
@@ -56,7 +56,7 @@
         <module name="OuterTypeFilename"/>
         <module name="MethodLength">
             <property name="tokens" value="METHOD_DEF"/>
-            <property name="max" value="10"/>
+            <property name="max" value="20"/>
             <property name="countEmpty" value="false"/>
             <property name="severity" value="error" />
         </module>
